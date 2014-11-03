@@ -1,10 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 5.6.2.final using JasperReports Library version 5.6.1  -->
-<!-- 2014-11-03T10:56:22 -->
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="traders" language="groovy" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a0392218-bd51-49ed-ad7d-f3fdf4a5d1b4">
+<!-- 2014-11-03T11:12:38 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="traders" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a0392218-bd51-49ed-ad7d-f3fdf4a5d1b4">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="82"/>
+	<parameter name="invoiceNo" class="java.lang.String"/>
+	<parameter name="date" class="java.lang.String"/>
+	<parameter name="vehicleNo" class="java.lang.String"/>
+	<parameter name="fphoneNo" class="java.lang.String"/>
+	<parameter name="partyTIN" class="java.lang.String"/>
+	<parameter name="ms" class="java.lang.String"/>
+	<parameter name="total" class="java.lang.String"/>
+	<parameter name="grandTotal" class="java.lang.String"/>
+	<parameter name="rupessinwords" class="java.lang.String"/>
+	<field name="quantity" class="java.lang.String"/>
+	<field name="unitRate" class="java.lang.String"/>
+	<field name="amount" class="java.lang.String"/>
+	<field name="meterialDescription" class="java.lang.String"/>
+	<variable name="countNumber" class="java.lang.Integer" calculation="Count">
+		<variableExpression><![CDATA[Boolean.TRUE]]></variableExpression>
+	</variable>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -118,27 +134,27 @@
 			</staticText>
 			<textField>
 				<reportElement positionType="Float" x="400" y="140" width="169" height="29" uuid="283dd07b-7b5e-4707-b2c0-119be40e22d9"/>
-				<textFieldExpression><![CDATA[$F{invoiceNo}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{invoiceNo}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="379" y="172" width="189" height="27" uuid="9cfc9985-3bf3-4b8c-8774-fbd5f2131666"/>
-				<textFieldExpression><![CDATA[$F{date}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{date}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="400" y="206" width="165" height="24" uuid="c9cc7f06-bbee-4f5e-8979-6c2ec6e9e69a"/>
-				<textFieldExpression><![CDATA[$F{vehicleNo}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{vehicleNo}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="236" y="207" width="100" height="23" uuid="1bd73322-f86a-432d-afa8-c40aac529fbc"/>
-				<textFieldExpression><![CDATA[$F{fphoneNo}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{fphoneNo}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="74" y="207" width="121" height="23" uuid="b2948f88-c3d8-4a79-bd68-c1f9f6e65b53"/>
-				<textFieldExpression><![CDATA[$F{partyTIN}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{partyTIN}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="31" y="145" width="305" height="53" uuid="3836d10e-9fb6-4911-93c5-27b00cae2201"/>
-				<textFieldExpression><![CDATA[$F{ms}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{ms}]]></textFieldExpression>
 			</textField>
 		</band>
 	</title>
@@ -237,7 +253,7 @@
 			</textField>
 			<textField>
 				<reportElement x="2" y="2" width="39" height="46" uuid="1d4dd5a6-d71a-4ac4-b7f8-4e35deb7f74f"/>
-				<textFieldExpression><![CDATA[$F{sno}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$V{countNumber}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
@@ -293,11 +309,11 @@
 			</staticText>
 			<textField>
 				<reportElement x="440" y="7" width="125" height="26" uuid="9f04242f-bfa2-4e8c-afad-ab9cb041250b"/>
-				<textFieldExpression><![CDATA[$F{total}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{total}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="441" y="70" width="124" height="24" uuid="0e726d09-e31b-4a19-a3ae-e7092992b44a"/>
-				<textFieldExpression><![CDATA[$F{grandTotal}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{grandTotal}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="357" y="37" width="75" height="28" forecolor="#2D45F5" uuid="9460ca74-98b9-4f07-ac0e-07f2d46d54cb"/>
@@ -305,7 +321,7 @@
 			</staticText>
 			<textField>
 				<reportElement x="6" y="39" width="342" height="54" uuid="daf8c596-9395-4ae4-9e87-ddc763d9778a"/>
-				<textFieldExpression><![CDATA[$F{rupessinwords}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{rupessinwords}]]></textFieldExpression>
 			</textField>
 		</band>
 	</columnFooter>

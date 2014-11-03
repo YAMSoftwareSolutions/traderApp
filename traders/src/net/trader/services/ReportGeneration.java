@@ -21,11 +21,20 @@ public class ReportGeneration {
     private void start() {
         try {                                            
             // report location
-        	String reportSource = "/home/vijay/Documents/traderApp/traders/src/net/trader/start/traders.jrxml";
+        	String reportSource = "/home/vijay/git/traderApp/traders/src/traders.jrxml";
         	
         	//fill The Parent Data
         	Map<String, Object> parentMap=new HashMap<String,Object>();
         	parentMap.put("invoiceNo", getRandomString());
+        	parentMap.put("date", getRandomString());
+        	parentMap.put("vehicleNo", getRandomString());
+        	parentMap.put("fphoneNo", getRandomString());
+        	parentMap.put("partyTIN", getRandomString());
+        	parentMap.put("ms", getRandomString());
+        	parentMap.put("total", getRandomString());
+        	parentMap.put("grandTotal", getRandomString());
+        	parentMap.put("rupessinwords", getRandomString());
+
         	
             // fill Child report
             List<Map<String,?>> childmaps = new ArrayList<Map<String, ?>> (); 
@@ -35,7 +44,6 @@ public class ReportGeneration {
                 map.put("unitRate", getRandomString());
                 map.put("amount", getRandomString());
                 map.put("meterialDescription", getRandomString());
-                map.put("sno", getRandomString());
                 childmaps.add(map);
             }            
             JRMapCollectionDataSource dataSource = new JRMapCollectionDataSource(childmaps);
@@ -50,7 +58,7 @@ public class ReportGeneration {
         }
     }
     private String getRandomString(){
-        return UUID.randomUUID().toString();
+        return "aaa";
     }
     public static void main(String[] args) {
     	ReportGeneration main = new ReportGeneration();

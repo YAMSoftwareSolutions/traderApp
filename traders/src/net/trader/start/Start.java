@@ -598,7 +598,7 @@ public class Start extends JFrame {
 		SwingUtilities.invokeLater(new Runnable() {
 			public void run() {
 				TraderTo traderTo = TradersDaofactory.getTraderDao().search(
-						objInvoiceNumberTextField.getText().trim());
+				objInvoiceNumberTextField.getText().trim());
 				objNameTextField.setText(traderTo.getName());
 				objAddressTextArea.setText(traderTo.getAddress());
 				objVechicleNoTextField.setText(traderTo.getVehicleNumber());
