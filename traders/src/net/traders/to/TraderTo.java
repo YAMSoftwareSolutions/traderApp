@@ -14,6 +14,7 @@ public class TraderTo {
 	private Double TotalAmount;
 	private Double tax;
 	private Double total;
+	private String date;
 	private Collection<MeterialDescriptionTO> objMeterialDescriptionTo=new ArrayList<MeterialDescriptionTO>();
 	//
 	public String getName() {
@@ -76,5 +77,11 @@ public class TraderTo {
 	public void setobjMeterialDescriptionTo(
 			Collection<MeterialDescriptionTO> objMeterialDescriptionTo) {
 		this.objMeterialDescriptionTo = objMeterialDescriptionTo;
+	}
+	public String getDate() {
+		return date;
+	}
+	public void setDate(String date) {
+		this.date = date;
 	}
 }

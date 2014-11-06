@@ -26,9 +26,10 @@ public class TraderDaoimpl implements TraderDao{
         traderOrm.setPartyTINNo(traderTo.getPartyTINNo());
         traderOrm.setPhoneNumber(traderTo.getPhoneNumber());
         traderOrm.setVehicleNumber(traderTo.getVehicleNumber());
-        traderOrm.setTax(traderOrm.getTax());
-        traderOrm.setTotalAmount(traderOrm.getTotalAmount());
-        traderOrm.setTotalAmount(traderOrm.getTotal());
+        traderOrm.setTax(traderTo.getTax());
+        traderOrm.setTotalAmount(traderTo.getTotalAmount());        
+        traderOrm.setTotal(traderTo.getTotal());
+        traderOrm.setDate(traderTo.getDate());
         //
         session.save(traderOrm);
         //Chaild Data
@@ -86,7 +87,7 @@ public class TraderDaoimpl implements TraderDao{
 	public TraderTo search(String invoiceNumber) {
 		//Get Session Factory
         Session session = HibernateUtil.currentSession();
-        TraderOrm traderOrm=(TraderOrm) session.createCriteria(TraderOrm.class).add(Restrictions.like("invoiceNumber", "777")).uniqueResult();
+        TraderOrm traderOrm=(TraderOrm) session.createCriteria(TraderOrm.class).add(Restrictions.like("invoiceNumber", invoiceNumber)).uniqueResult();
     	TraderTo traderTo=new TraderTo();
     		//
         	traderTo.setAddress(traderOrm.getAddress());

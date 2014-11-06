@@ -1,4 +1,6 @@
 package net.trader.dbConfig;
+import java.io.File;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -43,5 +45,12 @@ public class HibernateUtil {
                         s.close();
                 session.set(null);
         }
+        
+    	public static String getJarFolder() {
+    		File currentJavaJarFile = new File(HibernateUtil.class.getProtectionDomain().getCodeSource().getLocation().getPath());   
+    		String currentJavaJarFilePath = currentJavaJarFile.getAbsolutePath();
+    		String currentRootDirectoryPath = currentJavaJarFilePath.replace(currentJavaJarFile.getName(), "");
+    		return currentRootDirectoryPath.replaceAll("\\s", "%20");
+    	  }
 }
 

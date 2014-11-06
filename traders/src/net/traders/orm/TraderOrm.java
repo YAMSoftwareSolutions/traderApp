@@ -31,6 +31,7 @@ public class TraderOrm {
 	private Double TotalAmount;
 	private Double tax;
 	private Double total;
+	private String date;
 	@OneToMany(fetch=FetchType.LAZY,mappedBy="traderOrm",cascade={CascadeType.ALL},targetEntity=MeterialDescriptionOrm.class)
 	private Collection<MeterialDescriptionOrm> objMeterialDescriptionOrms=new ArrayList<MeterialDescriptionOrm>();
 
@@ -101,5 +102,11 @@ public class TraderOrm {
 	public void setObjMeterialDescriptionOrms(
 			Collection<MeterialDescriptionOrm> objMeterialDescriptionOrms) {
 		this.objMeterialDescriptionOrms = objMeterialDescriptionOrms;
+	}
+	public String getDate() {
+		return date;
+	}
+	public void setDate(String date) {
+		this.date = date;
 	}
 }
