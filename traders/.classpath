@@ -5,5 +5,22 @@
 	<classpathentry kind="con" path="org.dyno.visual.swing.VS_LIBRARY/layoutext"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/hibernte"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/jasper"/>
+	<classpathentry kind="lib" path="/home/pradeep/Desktop/jars/antlr-2.7.6.jar"/>
+	<classpathentry kind="lib" path="/home/pradeep/Desktop/jars/commons-collections-3.1.jar"/>
+	<classpathentry kind="lib" path="/home/pradeep/Desktop/jars/dom4j-1.6.1.jar"/>
+	<classpathentry kind="lib" path="/home/pradeep/Desktop/jars/hibernate3.jar"/>
+	<classpathentry kind="lib" path="/home/pradeep/Desktop/jars/hibernate-jpa-2.0-api-1.0.0.Final.jar"/>
+	<classpathentry kind="lib" path="/home/pradeep/Desktop/jars/javassist-3.12.0.GA.jar"/>
+	<classpathentry kind="lib" path="/home/pradeep/Desktop/jars/jta-1.1.jar"/>
+	<classpathentry kind="lib" path="/home/pradeep/Desktop/jars/postgresql-9.3-1102.jdbc4.jar"/>
+	<classpathentry kind="lib" path="/home/pradeep/Desktop/jars/slf4j-api-1.6.1.jar"/>
+	<classpathentry kind="lib" path="/home/pradeep/Desktop/jars/sqlitejdbc-v056.jar"/>
+	<classpathentry kind="lib" path="/home/pradeep/Desktop/jars/iText-2.1.7.js2.jar"/>
+	<classpathentry kind="lib" path="/home/pradeep/Desktop/jars/jasperreports-5.5.0.jar"/>
+	<classpathentry kind="lib" path="/home/pradeep/Desktop/jars/poi-3.7-20101029.jar"/>
+	<classpathentry kind="lib" path="/home/pradeep/Desktop/jars/commons-logging-1.1.1.jar"/>
+	<classpathentry kind="lib" path="/home/pradeep/Desktop/jars/commons-beanutils-1.8.0.jar"/>
+	<classpathentry kind="lib" path="/home/pradeep/Desktop/jars/commons-digester-2.1.jar"/>
+	<classpathentry kind="lib" path="/home/pradeep/Desktop/jars/javax.servlet.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

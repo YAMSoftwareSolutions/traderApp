@@ -21,7 +21,7 @@ public class ReportGeneration {
     private void start() {
         try {                                            
             // report location
-        	String reportSource = "/home/vijay/git/traderApp/traders/src/traders.jrxml";
+        	String reportSource = "/home/pradeep/git/traderApp/traders/src/traders.jrxml";
         	
         	//fill The Parent Data
         	Map<String, Object> parentMap=new HashMap<String,Object>();
