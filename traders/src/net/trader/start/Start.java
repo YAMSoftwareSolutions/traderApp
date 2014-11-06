@@ -602,27 +602,29 @@ public class Start extends JFrame {
 			public void run() {
 				TraderTo traderTo = TradersDaofactory.getTraderDao().search(
 						jInvocieSearchTextField.getText().trim());
-				objNameTextField.setText(traderTo.getName());
-				objAddressTextArea.setText(traderTo.getAddress());
-				objVechicleNoTextField.setText(traderTo.getVehicleNumber());
-				objPhoneNumberTextFields.setText(traderTo.getPhoneNumber());
-				objInvoiceNumberTextField.setText(traderTo.getInvoiceNumber());
-				objTINnoTextField.setText(traderTo.getPartyTINNo());
-				objTaxTextField.setText(traderTo.getTax().toString());
-				objTotalLabel.setText(traderTo.getTotalAmount().toString());
-				objLabelTotalAmountLabel
-				.setText(traderTo.getTotal().toString());
-				for (MeterialDescriptionTO meterialDescriptionTO : traderTo
-						.getobjMeterialDescriptionTo()) {
-					String[] data = {
-							meterialDescriptionTO.getMeterialDescription(),
-							meterialDescriptionTO.getQuantity(),
-							meterialDescriptionTO.getUnit(),
-							meterialDescriptionTO.getAmount().toString() };
-					objDefaultTableModel.addRow(data);
+				if(traderTo!=null){
+					objNameTextField.setText(traderTo.getName());
+					objAddressTextArea.setText(traderTo.getAddress());
+					objVechicleNoTextField.setText(traderTo.getVehicleNumber());
+					objPhoneNumberTextFields.setText(traderTo.getPhoneNumber());
+					objInvoiceNumberTextField.setText(traderTo.getInvoiceNumber());
+					objTINnoTextField.setText(traderTo.getPartyTINNo());
+					objTaxTextField.setText(traderTo.getTax().toString());
+					objTotalLabel.setText(traderTo.getTotalAmount().toString());
+					objLabelTotalAmountLabel
+					.setText(traderTo.getTotal().toString());
+					for (MeterialDescriptionTO meterialDescriptionTO : traderTo
+							.getobjMeterialDescriptionTo()) {
+						String[] data = {
+								meterialDescriptionTO.getMeterialDescription(),
+								meterialDescriptionTO.getQuantity(),
+								meterialDescriptionTO.getUnit(),
+								meterialDescriptionTO.getAmount().toString() };
+						objDefaultTableModel.addRow(data);
+					}
+					jPrintButton.setVisible(true);
+					objSaveButton.setVisible(false);
 				}
-				jPrintButton.setVisible(true);
-				objSaveButton.setVisible(false);
 			}
 		});
 	}

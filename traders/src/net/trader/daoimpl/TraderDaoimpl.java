@@ -1,5 +1,7 @@
 package net.trader.daoimpl;
 
+import javax.swing.JOptionPane;
+
 import net.trader.dao.TraderDao;
 import net.trader.dbConfig.HibernateUtil;
 import net.traders.orm.MeterialDescriptionOrm;
@@ -88,8 +90,9 @@ public class TraderDaoimpl implements TraderDao{
 		//Get Session Factory
         Session session = HibernateUtil.currentSession();
         TraderOrm traderOrm=(TraderOrm) session.createCriteria(TraderOrm.class).add(Restrictions.like("invoiceNumber", invoiceNumber)).uniqueResult();
-    	TraderTo traderTo=new TraderTo();
-    		//
+        if(traderOrm != null){
+        	TraderTo traderTo=new TraderTo();
+        	//
         	traderTo.setAddress(traderOrm.getAddress());
         	traderTo.setInvoiceNumber(traderOrm.getInvoiceNumber());
         	traderTo.setName(traderOrm.getName());
@@ -107,9 +110,20 @@ public class TraderDaoimpl implements TraderDao{
         		meterialDescriptionTO.setAmount(meterialDescriptionOrm.getAmount());
         		traderTo.getobjMeterialDescriptionTo().add(meterialDescriptionTO);
         	}
-        //		
-        session.close();
-		return traderTo;
+        	//		
+        	session.close();
+        	return traderTo;
+        }else{
+			Object[] options = {"OK"};
+			int n = JOptionPane.showOptionDialog(null,
+					"Invalid Invoice Number","Warning",
+					JOptionPane.PLAIN_MESSAGE,
+					JOptionPane.INFORMATION_MESSAGE,
+					null,
+					options,
+					options[0]);
+			return null;
+        }
 	}
 
 	@Override
