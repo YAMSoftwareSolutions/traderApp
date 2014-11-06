@@ -733,6 +733,7 @@ public class Start extends JFrame {
 		parentMap.put("partyTIN", objTINnoTextField.getText());
 		parentMap.put("ms",objNameTextField.getText());
 		parentMap.put("total", objTotalLabel.getText());
+		parentMap.put("tax", objTaxTextField.getText());
 		parentMap.put("grandTotal", objLabelTotalAmountLabel.getText());
 		parentMap.put("rupessinwords", "Rupes in words");
 
