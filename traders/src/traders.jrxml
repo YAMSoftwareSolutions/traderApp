@@ -12,6 +12,7 @@
 	<parameter name="partyTIN" class="java.lang.String"/>
 	<parameter name="ms" class="java.lang.String"/>
 	<parameter name="total" class="java.lang.String"/>
+	<parameter name="tax" class="java.lang.String"/>
 	<parameter name="grandTotal" class="java.lang.String"/>
 	<parameter name="rupessinwords" class="java.lang.String"/>
 	<field name="quantity" class="java.lang.String"/>
