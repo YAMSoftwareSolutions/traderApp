@@ -198,7 +198,7 @@ public class Start extends JFrame {
 			objTaxTextField.addFocusListener(new FocusAdapter() {
 
 				public void focusLost(FocusEvent event) {
-					objTaxTextFieldFocusFocusLost(event);
+					objTaxTextFieldFocusFocusLost();
 				}
 			});
 			objTaxTextField.addKeyListener(new KeyAdapter() {
@@ -721,18 +721,18 @@ public class Start extends JFrame {
 			// value = formatter.format((Number)value);
 			try {
 				value = Double.parseDouble(value.toString());
+				Double total = 0.0;
+				for (int i = 0; i < objDefaultTableModel.getRowCount(); i++) {
+					total = total
+							+ Double.parseDouble(objMeterialdetailsTable.getModel()
+									.getValueAt(i, 3).toString());
+				}
+				objTotalLabel.setText(total.toString());
+				objTaxTextFieldFocusFocusLost();
+				 //And pass it on to parent class
 			} catch (Exception e) {
 				value = 0.0;
 			}
-			Double total = 0.0;
-			for (int i = 0; i < objDefaultTableModel.getRowCount(); i++) {
-				total = total
-						+ Double.parseDouble(objMeterialdetailsTable.getModel()
-								.getValueAt(i, 3).toString());
-			}
-			objTotalLabel.setText(total.toString());
-			// And pass it on to parent class
-
 			return super.getTableCellRendererComponent(table, value,
 					isSelected, hasFocus, row, column);
 		}
@@ -795,13 +795,17 @@ public class Start extends JFrame {
 		}
 	}
 
-	private void objTaxTextFieldFocusFocusLost(FocusEvent event) {
+	private void objTaxTextFieldFocusFocusLost() {
 		Double taxAmount = 0.0;
 		Double taxPercent = 0.0;
 		Double totalAmount = 0.0;
 		Double finalTotal = 0.0;
-
+		try{
 		taxPercent = new Double(objTaxTextField.getText());
+		}
+		catch(Exception e){
+			taxPercent=0.0;
+		}
 		totalAmount = new Double(objTotalLabel.getText());
 		taxAmount = (taxPercent / 100) * totalAmount;
 		finalTotal = totalAmount + taxAmount;
