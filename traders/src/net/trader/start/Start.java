@@ -361,6 +361,7 @@ public class Start extends JFrame {
 	private JTable getObjMaterialdetailsTable() {
 		if (objMeterialdetailsTable == null) {
 			objMeterialdetailsTable = new JTable();
+			objMeterialdetailsTable.updateUI();
 			objMeterialdetailsTable
 			.setModel(objDefaultTableModel = new DefaultTableModel(
 					new Object[][][] {}, new String[] {
@@ -374,13 +375,9 @@ public class Start extends JFrame {
 				public Class<?> getColumnClass(int columnIndex) {
 					return types[columnIndex];
 				}
-
-				@SuppressWarnings("unused")
-				public void setCellEditable(int row, int col,
-						boolean value) {
-					this.editable_cells[row][col] = value; // set cell
-					// true/false
-					this.fireTableCellUpdated(row, col);
+				public boolean isCellEditable(int row, int column)
+				{
+					return true;
 				}
 			});
 			JTableHeader jTHeader = objMeterialdetailsTable.getTableHeader();
@@ -602,6 +599,25 @@ public class Start extends JFrame {
 			public void run() {
 				TraderTo traderTo = TradersDaofactory.getTraderDao().search(
 						jInvocieSearchTextField.getText().trim());
+				
+				objMeterialdetailsTable
+				.setModel(objDefaultTableModel = new DefaultTableModel(
+						new Object[][][] {}, new String[] {
+								"Material Description", "Quantity",
+								"Unit Rate", "Amount" }) {
+					private static final long serialVersionUID = 1L;
+					Class<?>[] types = new Class<?>[] { Object.class,
+							Object.class, Object.class, Object.class };
+					private boolean[][] editable_cells;
+
+					public Class<?> getColumnClass(int columnIndex) {
+						return types[columnIndex];
+					}
+					public boolean isCellEditable(int row, int column)
+					{
+						return false;
+					}
+				});
 				if(traderTo!=null){
 					objNameTextField.setText(traderTo.getName());
 					objAddressTextArea.setText(traderTo.getAddress());
@@ -754,10 +770,10 @@ public class Start extends JFrame {
 
 		try{
 			String path=HibernateUtil.getJarFolder();
-//			String reportSource = "/home/pradeep/git/traderApp/traders/src/traders.jrxml";
+			String reportSource = "/home/pradeep/git/traderApp/traders/src/traders.jrxml";
 			JRMapCollectionDataSource dataSource = new JRMapCollectionDataSource(childmaps);
 			// compile report
-			JasperReport jasperReport = (JasperReport)  JasperCompileManager.compileReport(path+"traders.jrxml");
+			JasperReport jasperReport = (JasperReport)  JasperCompileManager.compileReport(reportSource);
 			JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parentMap, dataSource);
 			// view report to UI
 			JasperViewer.viewReport(jasperPrint, false);
