@@ -9,7 +9,7 @@ import net.traders.orm.TraderOrm;
 
 public class TestService {
 	public static void main(String[] args) {
-        Session session = HibernateUtil.currentSession();
+        Session session = HibernateUtil.currentSession().openSession();
         Transaction tx = session.beginTransaction();
         TraderOrm traderOrm=new TraderOrm();
         traderOrm.setAddress("Trader");

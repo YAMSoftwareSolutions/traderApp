@@ -18,7 +18,7 @@ public class TraderDaoimpl implements TraderDao{
 	@Override
 	public TraderTo insert(TraderTo traderTo) {
 		//Get Session Factory
-        Session session = HibernateUtil.currentSession();
+        Session session = HibernateUtil.currentSession().openSession();
         Transaction tx = session.beginTransaction();
         //Parent Data
         TraderOrm traderOrm=new TraderOrm();
@@ -55,7 +55,7 @@ public class TraderDaoimpl implements TraderDao{
 	@Override
 	public TraderTo update(int id, TraderTo traderTo) {
 		//Get Session Factory
-        Session session = HibernateUtil.currentSession();
+        Session session = HibernateUtil.currentSession().openSession();
         Transaction tx = session.beginTransaction();
         //Parent Data
         TraderOrm traderOrm=(TraderOrm) session.load(TraderOrm.class, new Integer(id));
@@ -88,7 +88,7 @@ public class TraderDaoimpl implements TraderDao{
 	@Override
 	public TraderTo search(String invoiceNumber) {
 		//Get Session Factory
-        Session session = HibernateUtil.currentSession();
+        Session session = HibernateUtil.currentSession().openSession();
         TraderOrm traderOrm=(TraderOrm) session.createCriteria(TraderOrm.class).add(Restrictions.like("invoiceNumber", invoiceNumber)).uniqueResult();
         if(traderOrm != null){
         	TraderTo traderTo=new TraderTo();
