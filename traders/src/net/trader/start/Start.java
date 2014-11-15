@@ -773,7 +773,7 @@ public class Start extends JFrame {
 
 		try{
 			String path=HibernateUtil.getJarFolder();
-			String reportSource = "/home/pradeep/git/traderApp/traders/src/traders.jrxml";
+			String reportSource = path+"traders.jrxml";
 			JRMapCollectionDataSource dataSource = new JRMapCollectionDataSource(childmaps);
 			// compile report
 			JasperReport jasperReport = (JasperReport)  JasperCompileManager.compileReport(reportSource);
