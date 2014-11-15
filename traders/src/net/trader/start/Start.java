@@ -554,6 +554,8 @@ public class Start extends JFrame {
 	}
 
 	private void objCreateButtonActionActionPerformed(ActionEvent event) {
+		objAddbutton.setEnabled(true);
+		objDeleteButton.setEnabled(true);
 		objNameTextField.setEditable(true);
 		objNameTextField.setText("");
 		objAddressTextArea.setEditable(true);
@@ -585,6 +587,8 @@ public class Start extends JFrame {
 	}
 
 	private void jSearchButtonActionActionPerformed(ActionEvent event) {
+		objAddbutton.setEnabled(false);
+		objDeleteButton.setEnabled(false);
 		objNameTextField.setEditable(false);
 		objAddressTextArea.setEditable(false);
 		objPhoneNumberTextFields.setEditable(false);
