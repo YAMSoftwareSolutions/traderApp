@@ -195,7 +195,7 @@ public class Start extends JFrame {
 	private JFormattedTextField getObjTaxTextField() {
 		if (objTaxTextField == null) {
 			objTaxTextField = new JFormattedTextField();
-			objTaxTextField.setText("0.0");
+			objTaxTextField.setText("5.0");
 			objTaxTextField.addFocusListener(new FocusAdapter() {
 
 				public void focusLost(FocusEvent event) {
@@ -591,14 +591,14 @@ public class Start extends JFrame {
 		objInvoiceNumberTextField.setText("");
 		objTotalLabel.setText("");
 		objLabelTotalAmountLabel.setText("");
-		objTaxTextField.setText("");
+		objTaxTextField.setText("5.0");
 		jPrintButton.setVisible(false);
 		
 		// jInvocieSearchTextField.setEditable(false);
 		jInvocieSearchTextField.setText("");
 		jInvocieSearchTextField.setEditable(true);
 		objTaxTextField.setEditable(true);
-		objTaxTextField.setText("");
+		objTaxTextField.setText("5.0");
 		objSaveButton.setVisible(true);
 		objMaterialdetailsTable.setEnabled(true);
 		// delte the rows of table
