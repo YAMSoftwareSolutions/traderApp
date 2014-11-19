@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 5.6.2.final using JasperReports Library version 5.6.1  -->
-<!-- 2014-11-06T11:11:31 -->
+<!-- 2014-11-19T14:19:55 -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="traders" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a0392218-bd51-49ed-ad7d-f3fdf4a5d1b4">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
@@ -220,7 +220,7 @@
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="50">
+		<band height="52">
 			<line>
 				<reportElement x="42" y="-1" width="1" height="50" uuid="dbc51419-f199-43bb-b9cd-89fa3ef6dd62"/>
 			</line>
@@ -237,7 +237,7 @@
 				<reportElement x="521" y="-1" width="1" height="50" uuid="1f5eca04-0510-4548-9039-2953e61cd7dc"/>
 			</line>
 			<textField>
-				<reportElement x="297" y="0" width="52" height="49" uuid="e05891b9-92f8-41b7-8c00-d525b110471a"/>
+				<reportElement x="297" y="0" width="52" height="48" uuid="e05891b9-92f8-41b7-8c00-d525b110471a"/>
 				<textFieldExpression><![CDATA[$F{quantity}]]></textFieldExpression>
 			</textField>
 			<textField>
@@ -249,13 +249,16 @@
 				<textFieldExpression><![CDATA[$F{amount}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="44" y="1" width="253" height="49" uuid="e560e4b8-4de1-4913-b967-db518fb0f754"/>
+				<reportElement x="43" y="1" width="254" height="47" uuid="e560e4b8-4de1-4913-b967-db518fb0f754"/>
 				<textFieldExpression><![CDATA[$F{meterialDescription}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="2" y="2" width="39" height="46" uuid="1d4dd5a6-d71a-4ac4-b7f8-4e35deb7f74f"/>
 				<textFieldExpression><![CDATA[$V{countNumber}]]></textFieldExpression>
 			</textField>
+			<line>
+				<reportElement x="0" y="49" width="571" height="1" uuid="9d384303-41b9-4af2-a1e5-0d2465021ef9"/>
+			</line>
 		</band>
 	</detail>
 	<columnFooter>
