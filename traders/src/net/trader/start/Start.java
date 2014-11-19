@@ -554,6 +554,27 @@ public class Start extends JFrame {
 	}
 
 	private void objCreateButtonActionActionPerformed(ActionEvent event) {
+		jSearchButton.setEnabled(true);
+		objMeterialdetailsTable.updateUI();
+		objDefaultTableModel=null;
+		objMeterialdetailsTable
+		.setModel(objDefaultTableModel = new DefaultTableModel(
+				new Object[][][] {}, new String[] {
+						"Material Description", "Quantity",
+						"Unit Rate", "Amount" }) {
+			private static final long serialVersionUID = 1L;
+			Class<?>[] types = new Class<?>[] { Object.class,
+					Object.class, Object.class, Object.class };
+			private boolean[][] editable_cells;
+
+			public Class<?> getColumnClass(int columnIndex) {
+				return types[columnIndex];
+			}
+			public boolean isCellEditable(int row, int column)
+			{
+				return true;
+			}
+		});
 		objAddbutton.setEnabled(true);
 		objDeleteButton.setEnabled(true);
 		objNameTextField.setEditable(true);
@@ -602,7 +623,8 @@ public class Start extends JFrame {
 			public void run() {
 				TraderTo traderTo = TradersDaofactory.getTraderDao().search(
 						jInvocieSearchTextField.getText().trim());
-				
+				objMeterialdetailsTable.updateUI();
+				objDefaultTableModel=null;
 				objMeterialdetailsTable
 				.setModel(objDefaultTableModel = new DefaultTableModel(
 						new Object[][][] {}, new String[] {
@@ -659,6 +681,7 @@ public class Start extends JFrame {
 		objMaterialdetailsTable.setEnabled(false);
 		objAddbutton.setEnabled(false);
 		objDeleteButton.setEnabled(false);
+		jSearchButton.setEnabled(false);
 		//
 		SwingUtilities.invokeLater(new Runnable() {
 			public void run() {
